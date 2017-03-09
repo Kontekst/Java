@@ -14,7 +14,7 @@ import java.util.Date;
  * @author Kontekstowy
  */
 public class DiskFile extends DiskElement {
-    public  DiskFile(String absolutePath) {
+    public  DiskFile(String absolutePath) { 
         File tempFile = new File(absolutePath);
         
         basename = tempFile.getName();
@@ -38,7 +38,7 @@ public class DiskFile extends DiskElement {
         
         text=text + basename;
         
-        text=text + "        ";
+        text=text + "  P         ";
         
         text=text + new SimpleDateFormat("yyyy-MM-dd").format(mtime);
         
