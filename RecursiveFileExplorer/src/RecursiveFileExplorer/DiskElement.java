@@ -1,14 +1,16 @@
 package RecursiveFileExplorer;
 
 import java.io.File;
+import java.util.Date;
 
-public abstract class DiskElement {
+public abstract class DiskElement implements Comparable<DiskElement>{
    public File file; 
-   public Object mtime;
-   public   String basename;
+   public  String basename;
    boolean isDir;
-
-protected abstract void print( int depth);
+   long lastModifiedMS;
+   Date lastModified;
+   
+protected abstract void print(int depth);
 
 }
 
