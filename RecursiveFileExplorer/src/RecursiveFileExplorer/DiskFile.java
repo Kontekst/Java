@@ -13,6 +13,7 @@ public class DiskFile extends DiskElement {
         file = new File(absolutePath);
         lastModifiedMS = file.lastModified();
         lastModified = new Date(lastModifiedMS);
+        bytes= file.length();
     }
      
     @Override
@@ -35,22 +36,23 @@ public class DiskFile extends DiskElement {
 
         text=text + new SimpleDateFormat("yyyy-MM-dd").format( lastModified);
         
+        text=text +"  " +bytes;
         System.out.println(text);
         
     }
 
     @Override
     public int compareTo(DiskElement secondObject) {
-      //  boolean alphabetical=false;
-        //System.out.println(this.basename + " " + secondObject.basename);
-       // if(this.basename.compareTo(secondObject.basename)<0)
-       //     alphabetical=true;
-      //      if(alphabetical ){
-      ///          System.out.println(this.basename + " " + secondObject.basename);
-      //          return -1;
-       //     }else{
+        boolean alphabetical=false;
+        System.out.println(this.basename + " " + secondObject.basename);
+        if(this.basename.compareTo(secondObject.basename)<0)
+            alphabetical=true;
+            if(alphabetical ){
+                System.out.println(this.basename + " " + secondObject.basename);
+                return -1;
+            }else{
                  return 1;
-       //     }
+            }
 
     }
 }

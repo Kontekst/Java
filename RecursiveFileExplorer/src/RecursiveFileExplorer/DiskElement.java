@@ -9,6 +9,7 @@ public abstract class DiskElement implements Comparable<DiskElement>{
    boolean isDir;
    long lastModifiedMS;
    Date lastModified;
+   double bytes;
    
 protected abstract void print(int depth);
 

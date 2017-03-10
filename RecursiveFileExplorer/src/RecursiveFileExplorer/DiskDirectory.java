@@ -9,17 +9,9 @@ class SizeComparator implements Comparator<DiskElement> {
 
     @Override
     public int compare(DiskElement firstObject, DiskElement secondObject) {
-          boolean alphabetical=false;
-        if(firstObject.basename.compareTo(secondObject.basename)<0){
-            alphabetical=true;
-        }
-        
-        if(firstObject.isDir && !secondObject.isDir){
-            return -1;
-        }
-        
-        if(firstObject.isDir && secondObject.isDir && alphabetical){
-        /* (this.file.getTotalSpace()>t.file.getTotalSpace())*/
+        //  boolean alphabetical=false;
+        if(firstObject.lastModified.compareTo(secondObject.lastModified)<0){
+           
             return -1;
         }
        
@@ -45,6 +37,7 @@ public class DiskDirectory extends DiskElement {
         isDir=true;
         lastModifiedMS = file.lastModified();
         lastModified = new Date(lastModifiedMS);
+       bytes=file.length();
        
         File[] subfiles =  file .listFiles();
         if (subfiles != null) {
@@ -96,6 +89,8 @@ public class DiskDirectory extends DiskElement {
         text=text + "  F         ";
         
         text=text + new SimpleDateFormat("yyyy-MM-dd").format( lastModified);
+        
+        text=text +"  " +bytes;
         
         System.out.println(text);
         switch(mode){

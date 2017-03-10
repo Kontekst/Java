@@ -7,7 +7,7 @@ package RecursiveFileExplorer;
 public class Lab1Moje {
 
    public static void main(String[] args) {
-        args[1]="C:\\test";
+        args[1]="C:\\GNAT";
         args[2]="3"; 
         
         DiskDirectory temp =new DiskDirectory(args[1], true,args[2]);
