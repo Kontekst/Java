@@ -28,6 +28,17 @@ public class DiskDirectory extends DiskElement {
     
     File[] files;
     String mode;
+
+    public static long folderSize(File directory) {
+    long length = 0;
+    for (File file : directory.listFiles()) {
+        if (file.isFile())
+            length += file.length();
+        else
+            length += folderSize(file);
+    }
+    return length;
+    }
     
     public DiskDirectory(String path, boolean sorted,String argMode) {
         mode=argMode;
@@ -37,7 +48,17 @@ public class DiskDirectory extends DiskElement {
         isDir=true;
         lastModifiedMS = file.lastModified();
         lastModified = new Date(lastModifiedMS);
-       bytes=file.length();
+       bytes=folderSize(file);
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
         File[] subfiles =  file .listFiles();
         if (subfiles != null) {

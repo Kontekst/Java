@@ -47,6 +47,7 @@ public class DiskFile extends DiskElement {
         System.out.println(this.basename + " " + secondObject.basename);
         if(this.basename.compareTo(secondObject.basename)<0)
             alphabetical=true;
+        
             if(alphabetical ){
                 System.out.println(this.basename + " " + secondObject.basename);
                 return -1;
