@@ -1,0 +1,5 @@
+net\stawrul\services\EntityService.class
+net\stawrul\services\exceptions\OutOfStockException.class
+net\stawrul\services\OrdersService.class
+net\stawrul\model\Order.class
+net\stawrul\controllers\ShopController.class
